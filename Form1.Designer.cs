@@ -35,6 +35,7 @@
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adelanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,9 +54,9 @@
             // addresBar
             // 
             this.addresBar.FormattingEnabled = true;
-            this.addresBar.Location = new System.Drawing.Point(217, 12);
+            this.addresBar.Location = new System.Drawing.Point(316, 4);
             this.addresBar.Name = "addresBar";
-            this.addresBar.Size = new System.Drawing.Size(662, 24);
+            this.addresBar.Size = new System.Drawing.Size(586, 24);
             this.addresBar.TabIndex = 3;
             // 
             // webView
@@ -75,7 +76,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.atrasToolStripMenuItem,
-            this.adelanteToolStripMenuItem});
+            this.adelanteToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1072, 28);
@@ -102,6 +104,13 @@
             this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.adelanteToolStripMenuItem.Text = "Adelante";
             this.adelanteToolStripMenuItem.Click += new System.EventHandler(this.adelanteToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.eliminarToolStripMenuItem.Text = "Eliminar ";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -132,6 +141,7 @@
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adelanteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }
 
