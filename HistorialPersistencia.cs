@@ -55,8 +55,11 @@ namespace Navegador2
         public List<DireccionesURL> LeerJason()
         {
             List<DireccionesURL> direcciones = new List<DireccionesURL>();
-            string jsonString = File.ReadAllText(fileHistoriallJson);
-            direcciones = JsonConvert.DeserializeObject<List<DireccionesURL>>(jsonString);
+            if (File.Exists(fileHistoriallJson))
+            {
+                string jsonString = File.ReadAllText(fileHistoriallJson);
+                direcciones = JsonConvert.DeserializeObject<List<DireccionesURL>>(jsonString);
+            }
             return direcciones;
         }
 

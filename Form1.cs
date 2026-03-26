@@ -17,6 +17,7 @@ namespace Navegador2
     public partial class Form1 : Form
     {
         List<DireccionesURL> direcciones = new List<DireccionesURL>();
+        HistorialPersistencia hi = new HistorialPersistencia();
         public Form1()
         {
             InitializeComponent();
@@ -34,33 +35,8 @@ namespace Navegador2
        //ELiminar guardar para hacerlo en la clase HistorialPErsistencia
 
 
-        }
-        private void Leer()
-        {
-            string nombreArchivo = @"historial2.txt";
-
-            if (!File.Exists(nombreArchivo))
-                return;
-
-            // evita duplicados
-
-            using (StreamReader reader = new StreamReader(nombreArchivo))
-            {
-                while (!reader.EndOfStream)
-                {
-
-                    // Lee cada bloque de 3 líneas y crea un objeto DireccionesURL
-                    DireccionesURL direccionesURL = new DireccionesURL();
-                    direccionesURL.Urldirec = reader.ReadLine();
-                    direccionesURL.Veces = Convert.ToInt16(reader.ReadLine());
-                    direccionesURL.Fechaacceso = Convert.ToDateTime(reader.ReadLine());
-
-                    direcciones.Add(direccionesURL);
-                }
-                reader.Close();
-                Mostrar();
-            } 
-        }
+        
+       //Eliminat Leer porque ya fue enviado a HistorialPersistencia
         
         void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs args)
         {
@@ -112,7 +88,7 @@ namespace Navegador2
 
 
                 }
-                Guardar(@"historial2.txt");
+                hi.GuardarJson(direcciones);
                 
             }
 
@@ -140,7 +116,7 @@ namespace Navegador2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Leer();
+            direcciones = hi.LeerJason();
         }
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -174,8 +150,9 @@ namespace Navegador2
             String urli = addresBar.Text;
             direcciones.RemoveAll(d => d.Urldirec == urli);
 
-            Guardar(@"historial2.txt");
-            
+            hi.GuardarJson(direcciones);
         }
+
+        
     }
 }
