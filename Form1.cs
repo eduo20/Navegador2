@@ -31,18 +31,7 @@ namespace Navegador2
             addresBar.DataSource = direcciones; 
         }
 
-        private void Guardar(string nombreArchivo)
-        {
-            FileStream stram = new FileStream(nombreArchivo, FileMode.OpenOrCreate, FileAccess.Write);
-            StreamWriter writer = new StreamWriter(stram);
-            foreach (var direccion in direcciones)
-            {
-                writer.WriteLine(direccion.Urldirec);
-                
-                writer.WriteLine(direccion.Veces);
-                writer.WriteLine(direccion.Fechaacceso);
-            }
-            writer.Close();
+       //ELiminar guardar para hacerlo en la clase HistorialPErsistencia
 
 
         }
