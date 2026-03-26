@@ -60,5 +60,10 @@ namespace Navegador2
             return direcciones;
         }
 
+        public void GuardarJson(List<DireccionesURL> direcciones)
+        {
+            string JsonString = JsonConvert.SerializeObject(direcciones);
+            File.WriteAllText(fileHistoriallJson, JsonString);
+        }
     }
 }
