@@ -36,13 +36,29 @@ namespace Navegador2
             {
                 FileStream stream = new FileStream(fileHistorial, FileMode.Open, FileAccess.Read);
                 StreamReader reader = new StreamReader(stream);
-                while (reader.Peek() > -1) { }
+                while (reader.Peek() > -1)
+                {
 
-                DireccionesURL direccion = new DireccionesURL();
-                direccion.Urldirec = reader.ReadLine();
-                direccion.Veces = Convert.ToInt32(reader.ReadLine());
-                direccion.Fechaacceso = Convert.ToDateTime(reader.ReadLine());
+                    DireccionesURL direccion = new DireccionesURL();
+                    direccion.Urldirec = reader.ReadLine();
+                    direccion.Veces = Convert.ToInt32(reader.ReadLine());
+                    direccion.Fechaacceso = Convert.ToDateTime(reader.ReadLine());
+
+                    direcciones.Add(direccion);
+                }
+                reader.Close();
             }
+            return direcciones;
+            
         }
+
+        public List<DireccionesURL> LeerJason()
+        {
+            List<DireccionesURL> direcciones = new List<DireccionesURL>();
+            string jsonString = File.ReadAllText(fileHistoriallJson);
+            direcciones = JsonConvert.DeserializeObject<List<DireccionesURL>>(jsonString);
+            return direcciones;
+        }
+
     }
 }
